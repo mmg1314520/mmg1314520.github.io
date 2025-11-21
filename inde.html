@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to小琴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .date {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+        
+        .image-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+        }
+        
+        .image-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 15px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            font-size: 1.8rem;
+        }
+        
+        .daily-text {
+            background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #6a11cb;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin-top: 20px;
+            color: #6a11cb;
+            font-weight: 500;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            background-color: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .image-section, .text-section {
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>to小妤</h1>
+            <div class="date" id="current-date">2025年11月18日</div>
+        </header>
+        
+        <div class="content">
+            <div class="image-section">
+                <h2>今日图片</h2>
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="今日图片" id="daily-image">
+                </div>
+            </div>
+            
+            <div class="text-section">
+                <h2>今日文字</h2>
+                <div class="daily-text" id="daily-text">
+                    今天也要开心啊！保持积极的心态，享受生活中的每一个小确幸。无论遇到什么挑战，都要相信自己有能力克服。记住，每一天都是新的开始，充满了无限的可能性。
+                </div>
+                <div class="quote">—— 每天给自己一个微笑，生活会更美好</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>每日更新网页 &copy; 2025 --毛毛</p>
+        </footer>
+    </div>
+
+    <script>
+        // 显示当前日期
+        function updateDate() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('zh-CN', options);
+        }
+        
+        // 更新图片URL - 在这里修改图片
+        const imageUrl = "https://s1.aigei.com/src/img/png/db/dbb67bc8006b449a97286292a0accd3c.png?imageMogr2/auto-orient/thumbnail/!282x282r/gravity/Center/crop/282x282/quality/85/%7CimageView2/2/w/282&e=2051020800&token=P7S2Xpzfz11vAkASLTkfHN7Fw-oOZBecqeJaxypL:3HTm0hlKHDPfuYvzcFzlUWHDiDs=";
+        
+        // 更新文字内容 - 在这里修改文字
+        const dailyText = "今天也要开心啊！保持积极的心态，享受生活中的每一个小确幸。无论遇到什么挑战，都要相信自己有能力克服。记住，每一天都是新的开始，充满了无限的可能性。";
+        
+        // 设置内容
+        document.getElementById('daily-image').src = imageUrl;
+        document.getElementById('daily-text').textContent = dailyText;
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDate();
+        });
+    </script>
+</body>
+</html>
